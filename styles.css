@@ -1471,21 +1471,21 @@ a {
 }
 
 .contact-section {
-  grid-template-columns: minmax(260px, 0.72fr) minmax(360px, 1fr);
-  gap: clamp(26px, 5vw, 78px);
-  align-items: center;
-  justify-items: center;
+  place-items: center;
   min-height: 62svh;
   color: var(--cream);
   background: var(--coral);
 }
 
 .digital-wall {
-  position: relative;
+  position: absolute;
+  left: clamp(34px, 10vw, 170px);
+  top: 50%;
   z-index: 8;
   width: clamp(240px, 31vw, 420px);
   aspect-ratio: 1.28;
-  transform: rotateX(54deg) rotateZ(-28deg);
+  pointer-events: none;
+  transform: translateY(-50%) rotateX(54deg) rotateZ(-28deg);
   transform-style: preserve-3d;
 }
 
@@ -1510,38 +1510,38 @@ a {
 }
 
 .wall-brick-1 {
-  --x: -68px;
+  --x: -132px;
   --y: 72px;
   --delay: 0ms;
 }
 
 .wall-brick-2 {
-  --x: 64px;
+  --x: 0px;
   --y: 72px;
   --delay: 180ms;
 }
 
 .wall-brick-3 {
-  --x: 0px;
-  --y: 22px;
+  --x: 132px;
+  --y: 72px;
   --delay: 360ms;
 }
 
 .wall-brick-4 {
-  --x: 132px;
-  --y: 22px;
+  --x: -66px;
+  --y: 20px;
   --delay: 540ms;
 }
 
 .wall-brick-5 {
-  --x: -64px;
-  --y: -30px;
+  --x: 66px;
+  --y: 20px;
   --delay: 720ms;
 }
 
 .wall-brick-6 {
-  --x: 70px;
-  --y: -30px;
+  --x: 0px;
+  --y: -32px;
   --delay: 900ms;
 }
 
@@ -2429,13 +2429,12 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 
   .contact-section {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    min-height: 72svh;
+    min-height: 62svh;
   }
 
   .digital-wall {
-    width: clamp(210px, 48vw, 330px);
+    left: 2vw;
+    width: clamp(190px, 34vw, 280px);
   }
 
   .team-photo {
@@ -2750,11 +2749,11 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 
   .contact-section {
-    min-height: 78svh;
+    min-height: 62svh;
   }
 
   .digital-wall {
-    width: min(78vw, 260px);
+    display: none;
   }
 
   .ventures-intro > p:not(.test-label),
