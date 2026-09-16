@@ -41,23 +41,35 @@ function step(direction) {
   goTo(activeIndex + direction);
 }
 
+function canScrollInsideLastSection(direction) {
+  if (activeIndex !== sections.length - 1) return false;
+  const lastSectionBounds = sections[activeIndex].getBoundingClientRect();
+  return direction > 0
+    ? lastSectionBounds.bottom > window.innerHeight + 2
+    : lastSectionBounds.top < -2;
+}
+
 window.addEventListener(
   "wheel",
   (event) => {
     if (Math.abs(event.deltaY) < 18) return;
+    const direction = event.deltaY > 0 ? 1 : -1;
+    if (canScrollInsideLastSection(direction)) return;
     event.preventDefault();
-    step(event.deltaY > 0 ? 1 : -1);
+    step(direction);
   },
   { passive: false },
 );
 
 window.addEventListener("keydown", (event) => {
   if (["ArrowDown", "PageDown", " "].includes(event.key)) {
+    if (canScrollInsideLastSection(1)) return;
     event.preventDefault();
     step(1);
   }
 
   if (["ArrowUp", "PageUp"].includes(event.key)) {
+    if (canScrollInsideLastSection(-1)) return;
     event.preventDefault();
     step(-1);
   }
@@ -77,8 +89,10 @@ window.addEventListener(
     const currentY = event.touches[0]?.clientY || 0;
     const delta = touchStartY - currentY;
     if (Math.abs(delta) < 42) return;
+    const direction = delta > 0 ? 1 : -1;
+    if (canScrollInsideLastSection(direction)) return;
     event.preventDefault();
-    step(delta > 0 ? 1 : -1);
+    step(direction);
     touchStartY = currentY;
   },
   { passive: false },

@@ -85,13 +85,13 @@ a {
   grid-template-columns: auto auto auto;
   align-items: center;
   justify-self: center;
-  width: min(100%, 900px);
+  width: min(calc(100% - 32px), 780px);
   min-height: 0;
-  gap: clamp(16px, 2.1vw, 34px);
-  padding: 0 clamp(14px, 1.7vw, 24px);
+  gap: clamp(14px, 1.6vw, 24px);
+  padding: 8px clamp(16px, 1.7vw, 22px);
   border-radius: 999px;
   background: var(--cream);
-  color: var(--blue);
+  color: var(--ink);
   box-shadow: 0 18px 54px rgba(17, 17, 17, 0.12);
   font-family: "Clash Grotesk", "Aptos", "Segoe UI", sans-serif;
 }
@@ -104,17 +104,14 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
-  height: 22px;
   width: fit-content;
-  overflow: hidden;
   line-height: 0;
 }
 
 .brand img {
   display: block;
-  width: clamp(82px, 7.2vw, 104px);
-  height: auto;
-  transform: translateY(-1px);
+  width: auto;
+  height: clamp(23px, 2.1vw, 27px);
 }
 
 .nav-links {
@@ -143,11 +140,40 @@ a {
   justify-self: end;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  color: var(--coral);
+  gap: 8px;
+  padding: 9px 13px 9px 15px;
+  border: 2px solid var(--coral);
+  border-radius: 999px;
+  background: var(--coral);
+  color: var(--white);
+  box-shadow: 0 4px 0 rgba(17, 17, 17, 0.14);
   font-size: clamp(0.76rem, 0.9vw, 0.88rem);
   font-weight: 600;
   line-height: 1;
+}
+
+.nav-cta:hover {
+  background: var(--white);
+  color: var(--coral);
+  box-shadow: 0 3px 0 rgba(17, 17, 17, 0.12);
+}
+
+.nav-cta span:last-child {
+  display: inline-grid;
+  place-items: center;
+  width: 25px;
+  height: 20px;
+  border-radius: 6px;
+  background: rgba(17, 17, 17, 0.18);
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: -0.08em;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.nav-cta:hover span:last-child {
+  background: var(--coral);
+  color: var(--white);
 }
 
 .nav-cta span:last-child,
@@ -202,10 +228,10 @@ a {
   max-width: 11.2ch;
   margin: 0;
   font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
-  font-size: clamp(2.85rem, 6.2vw, 7.1rem);
+  font-size: clamp(2.5rem, 5vw, 5.7rem);
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.3;
+  line-height: 1.36;
   text-transform: uppercase;
   text-shadow: 4px 5px 0 rgba(17, 17, 17, 0.16);
 }
@@ -220,17 +246,18 @@ a {
 }
 
 .hero-blue .hero-copy {
-  margin-top: clamp(6px, 3vh, 30px);
+  margin-top: clamp(4px, 1.5vh, 16px);
 }
 
 .hero-subline {
   position: relative;
   z-index: 12;
   display: flex;
-  align-items: center;
-  gap: clamp(18px, 2.8vw, 34px);
-  max-width: min(92vw, 1040px);
-  margin-top: clamp(18px, 2.8vh, 32px);
+  align-items: flex-start;
+  flex-direction: column;
+  gap: clamp(14px, 1.8vh, 20px);
+  max-width: min(92vw, 620px);
+  margin-top: clamp(14px, 2vh, 22px);
 }
 
 .hero-cta {
@@ -534,7 +561,7 @@ a {
   font-size: clamp(1.85rem, 3.25vw, 3.45rem);
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.28;
+  line-height: 1.36;
   text-transform: uppercase;
 }
 
@@ -637,7 +664,7 @@ a {
   font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
   font-size: clamp(1.36rem, 2.06vw, 2.28rem);
   font-weight: 400;
-  line-height: 1.34;
+  line-height: 1.4;
   text-transform: uppercase;
 }
 
@@ -646,7 +673,7 @@ a {
   font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
   font-size: clamp(0.66rem, 0.74vw, 0.82rem);
   font-weight: 400;
-  line-height: 1.32;
+  line-height: 1.38;
   text-transform: uppercase;
 }
 
@@ -784,7 +811,7 @@ a {
   font-size: clamp(1.85rem, 3.25vw, 3.45rem);
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.28;
+  line-height: 1.36;
   text-transform: uppercase;
 }
 
@@ -893,7 +920,7 @@ a {
   font-size: clamp(0.76rem, 0.98vw, 1.06rem);
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.34;
+  line-height: 1.4;
   text-transform: uppercase;
 }
 
@@ -1141,7 +1168,7 @@ a {
   font-size: clamp(1.85rem, 3.25vw, 3.45rem);
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.28;
+  line-height: 1.36;
   text-transform: uppercase;
 }
 
@@ -1180,16 +1207,7 @@ a {
 }
 
 .venture-path-card::after {
-  content: "";
-  position: absolute;
-  right: clamp(26px, 3vw, 46px);
-  bottom: clamp(24px, 3vw, 44px);
-  width: clamp(96px, 10vw, 150px);
-  aspect-ratio: 1;
-  border: 2px solid rgba(255, 253, 245, 0.42);
-  border-radius: 30% 70% 56% 44%;
-  opacity: 0.5;
-  transform: rotate(-12deg);
+  display: none;
 }
 
 .path-codev {
@@ -1198,6 +1216,28 @@ a {
 
 .path-studio {
   background: var(--green);
+}
+
+.path-lego {
+  position: absolute;
+  z-index: 2;
+  top: clamp(14px, 1.7vw, 24px);
+  right: clamp(28px, 3.4vw, 52px);
+  display: block;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 18px rgba(17, 17, 17, 0.18));
+  pointer-events: none;
+}
+
+.path-lego-duo {
+  width: clamp(96px, 9.5vw, 142px);
+  transform: rotate(-5deg);
+}
+
+.path-lego-solo {
+  width: clamp(74px, 7.3vw, 108px);
+  transform: rotate(6deg);
 }
 
 .venture-path-card > div {
@@ -1226,7 +1266,7 @@ a {
   font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
   font-size: clamp(1.45rem, 2.25vw, 2.55rem);
   font-weight: 400;
-  line-height: 1.28;
+  line-height: 1.36;
   text-transform: uppercase;
 }
 
@@ -1265,7 +1305,7 @@ a {
   font-size: clamp(1.85rem, 3.25vw, 3.45rem);
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.28;
+  line-height: 1.36;
   text-transform: uppercase;
 }
 
@@ -1318,7 +1358,7 @@ a {
   font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
   font-size: clamp(0.9rem, 1.18vw, 1.24rem);
   font-weight: 400;
-  line-height: 1.35;
+  line-height: 1.42;
   text-transform: uppercase;
 }
 
@@ -1362,7 +1402,7 @@ a {
   font-size: clamp(1.7rem, 3vw, 3.1rem);
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.28;
+  line-height: 1.36;
   text-transform: uppercase;
 }
 
@@ -1440,7 +1480,7 @@ a {
   font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
   font-size: clamp(1.2rem, 1.85vw, 2rem);
   font-weight: 400;
-  line-height: 1.22;
+  line-height: 1.32;
   text-transform: uppercase;
 }
 
@@ -1471,8 +1511,10 @@ a {
 }
 
 .contact-section {
-  place-items: center;
-  min-height: 62svh;
+  grid-template-rows: minmax(62svh, 1fr) auto;
+  place-items: stretch;
+  min-height: 100svh;
+  padding: 0;
   color: var(--cream);
   background: var(--coral);
 }
@@ -1484,6 +1526,8 @@ a {
   justify-items: center;
   gap: clamp(20px, 3vh, 34px);
   width: min(92vw, 920px);
+  margin: auto;
+  padding: 42px 18px;
   text-align: center;
 }
 
@@ -1493,7 +1537,7 @@ a {
   font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
   font-size: clamp(1.7rem, 3.8vw, 4.1rem);
   font-weight: 400;
-  line-height: 1.24;
+  line-height: 1.34;
   text-transform: uppercase;
 }
 
@@ -1523,6 +1567,86 @@ a {
 .contact-cta:hover span:last-child {
   background: var(--coral);
   color: var(--white);
+}
+
+.site-footer {
+  align-self: end;
+  width: 100%;
+  padding: clamp(30px, 4vw, 54px) clamp(22px, 4vw, 62px) 22px;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: "Clash Grotesk", "Aptos", "Segoe UI", sans-serif;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) auto minmax(210px, 1fr);
+  align-items: start;
+  gap: clamp(28px, 5vw, 86px);
+  padding-bottom: clamp(28px, 4vw, 48px);
+}
+
+.footer-brand {
+  display: inline-flex;
+  width: fit-content;
+  line-height: 0;
+}
+
+.footer-brand img {
+  display: block;
+  width: clamp(118px, 11vw, 158px);
+  height: auto;
+}
+
+.footer-nav,
+.footer-contact {
+  display: grid;
+  gap: 9px;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.25;
+}
+
+.footer-nav a,
+.footer-contact a {
+  width: fit-content;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.footer-nav a:hover,
+.footer-contact a:hover {
+  color: var(--coral);
+  transform: translateX(3px);
+}
+
+.footer-contact {
+  justify-self: end;
+}
+
+.footer-contact span {
+  color: rgba(17, 17, 17, 0.58);
+}
+
+.footer-contact a {
+  font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+  font-weight: 600;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(17, 17, 17, 0.22);
+  color: rgba(17, 17, 17, 0.62);
+  font-size: 0.78rem;
+}
+
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px 24px;
 }
 
 .venture-lanes {
@@ -2097,7 +2221,8 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   .hero-nav {
     grid-template-columns: 1fr auto;
     min-height: 0;
-    padding: 0 14px;
+    width: min(calc(100% - 12px), 780px);
+    padding: 8px 14px;
   }
 
   .nav-links {
@@ -2106,7 +2231,7 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
 
   .hero-copy h1 {
     max-width: 10.8ch;
-    font-size: clamp(2.7rem, 11vw, 5.8rem);
+    font-size: clamp(2.5rem, 7vw, 4.8rem);
   }
 
   .hero-baseline {
@@ -2294,6 +2419,14 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
     font-size: clamp(1.18rem, 3.1vw, 1.9rem);
   }
 
+  .path-lego-duo {
+    width: clamp(86px, 13vw, 114px);
+  }
+
+  .path-lego-solo {
+    width: clamp(68px, 10.5vw, 92px);
+  }
+
   .vision-section {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -2339,7 +2472,16 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 
   .contact-section {
-    min-height: 62svh;
+    min-height: 100svh;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-contact {
+    grid-column: 1 / -1;
+    justify-self: start;
   }
 
   .team-photo {
@@ -2374,7 +2516,8 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
 
 @media (max-width: 620px) {
   .brand img {
-    width: 82px;
+    width: auto;
+    height: 23px;
   }
 
   .nav-cta span:first-child {
@@ -2383,11 +2526,11 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
 
   .hero-copy {
     align-self: start;
-    margin-top: 12vh;
+    margin-top: 7vh;
   }
 
   .hero-copy h1 {
-    font-size: clamp(2.15rem, 11vw, 3.8rem);
+    font-size: clamp(2.05rem, 8.4vw, 3.25rem);
   }
 
   .hero-title-shift {
@@ -2593,6 +2736,19 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
     border-radius: 36px;
   }
 
+  .path-lego {
+    top: 14px;
+    right: 26px;
+  }
+
+  .path-lego-duo {
+    width: 84px;
+  }
+
+  .path-lego-solo {
+    width: 66px;
+  }
+
   .vision-section {
     gap: 22px;
   }
@@ -2654,7 +2810,25 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 
   .contact-section {
-    min-height: 62svh;
+    min-height: 100svh;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-contact {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-legal {
+    justify-content: flex-start;
   }
 
   .ventures-intro > p:not(.test-label),
