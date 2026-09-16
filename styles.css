@@ -163,6 +163,8 @@ a {
 .test-label {
   position: relative;
   z-index: 8;
+  display: inline-flex;
+  align-items: center;
   width: fit-content;
   margin: clamp(24px, 4.2vh, 44px) 0 0;
   padding: 9px 14px;
@@ -173,6 +175,20 @@ a {
   font-weight: 950;
   opacity: 0.72;
   text-transform: uppercase;
+}
+
+.test-label img {
+  display: block;
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  object-fit: contain;
+  filter: none;
+}
+
+.process-section .test-label img,
+.vision-section .test-label img {
+  filter: brightness(0) invert(1);
 }
 
 .hero-copy {
@@ -506,7 +522,7 @@ a {
 
 .audience-intro .test-label {
   margin-top: 0;
-  color: var(--coral);
+  color: var(--ink);
   font-weight: 400;
 }
 
@@ -1114,7 +1130,7 @@ a {
 
 .ventures-intro .test-label {
   margin-top: 0;
-  color: var(--blue);
+  color: var(--ink);
 }
 
 .ventures-intro h2 {
@@ -1349,7 +1365,7 @@ a {
 
 .team-intro .test-label {
   margin-top: 0;
-  color: var(--blue);
+  color: var(--ink);
 }
 
 .team-intro h2 {
