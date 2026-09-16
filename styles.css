@@ -1461,6 +1461,20 @@ a {
   line-height: 1.38;
 }
 
+.team-role {
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.team-link {
+  width: fit-content;
+  margin-top: 12px;
+  border-bottom: 1px solid currentColor;
+  font-family: "Clash Grotesk", "Aptos", "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.1;
+}
+
 .venture-lanes {
   position: relative;
   z-index: 7;
