@@ -1467,6 +1467,52 @@ a {
   line-height: 1.1;
 }
 
+.contact-section {
+  place-items: center;
+  color: var(--cream);
+  background: var(--coral);
+}
+
+.contact-copy {
+  position: relative;
+  z-index: 8;
+  display: grid;
+  justify-items: center;
+  gap: clamp(26px, 4vh, 44px);
+  width: min(92vw, 920px);
+  text-align: center;
+}
+
+.contact-copy h2 {
+  max-width: 13ch;
+  margin: 0;
+  font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
+  font-size: clamp(2rem, 4.7vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1.24;
+  text-transform: uppercase;
+}
+
+.contact-cta {
+  border-color: var(--cream);
+  background: var(--cream);
+  color: var(--coral);
+}
+
+.contact-cta:hover {
+  background: var(--white);
+  color: var(--coral);
+}
+
+.contact-cta span:last-child {
+  background: rgba(237, 93, 58, 0.18);
+}
+
+.contact-cta:hover span:last-child {
+  background: var(--coral);
+  color: var(--white);
+}
+
 .venture-lanes {
   position: relative;
   z-index: 7;
@@ -1800,6 +1846,7 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .vision-intro,
 html.has-js .section:not(.is-visible):not(.is-exiting) .vision-item,
 html.has-js .section:not(.is-visible):not(.is-exiting) .team-intro,
 html.has-js .section:not(.is-visible):not(.is-exiting) .team-card,
+html.has-js .section:not(.is-visible):not(.is-exiting) .contact-copy,
 html.has-js .section:not(.is-visible):not(.is-exiting) .venture-lane,
 html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   opacity: 0;
@@ -1813,7 +1860,8 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
 .section.is-visible .process-intro,
 .section.is-visible .ventures-intro,
 .section.is-visible .vision-intro,
-.section.is-visible .team-intro {
+.section.is-visible .team-intro,
+.section.is-visible .contact-copy {
   animation: copyIn 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -1842,7 +1890,8 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
 .section.is-exiting .process-intro,
 .section.is-exiting .ventures-intro,
 .section.is-exiting .vision-intro,
-.section.is-exiting .team-intro {
+.section.is-exiting .team-intro,
+.section.is-exiting .contact-copy {
   animation: copyOut 520ms cubic-bezier(0.7, 0, 0.84, 0) both;
 }
 
@@ -2273,6 +2322,10 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
     padding: 22px;
   }
 
+  .contact-copy h2 {
+    font-size: clamp(1.8rem, 7vw, 4.2rem);
+  }
+
   .team-photo {
     min-height: 210px;
   }
@@ -2578,6 +2631,10 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
 
   .team-card h3 {
     font-size: clamp(1.08rem, 6vw, 1.62rem);
+  }
+
+  .contact-copy h2 {
+    font-size: clamp(1.42rem, 8vw, 2.8rem);
   }
 
   .ventures-intro > p:not(.test-label),
