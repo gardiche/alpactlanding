@@ -1477,74 +1477,6 @@ a {
   background: var(--coral);
 }
 
-.digital-wall {
-  position: absolute;
-  left: clamp(34px, 10vw, 170px);
-  top: 50%;
-  z-index: 8;
-  width: clamp(240px, 31vw, 420px);
-  aspect-ratio: 1.28;
-  pointer-events: none;
-  transform: translateY(-50%) rotateX(54deg) rotateZ(-28deg);
-  transform-style: preserve-3d;
-}
-
-.wall-brick {
-  --x: 0px;
-  --y: 0px;
-  --delay: 0ms;
-  position: absolute;
-  left: calc(50% + var(--x));
-  top: calc(50% + var(--y));
-  width: clamp(118px, 12vw, 166px);
-  height: clamp(34px, 3.7vw, 48px);
-  border: 2px solid var(--blue);
-  background: var(--white);
-  box-shadow:
-    9px 9px 0 rgba(21, 109, 245, 0.92),
-    10px 10px 0 var(--blue);
-  opacity: 0;
-  transform: translate3d(-50%, -50%, 80px) scale(0.94);
-  animation: wallBrickIn 4.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-  animation-delay: var(--delay);
-}
-
-.wall-brick-1 {
-  --x: -132px;
-  --y: 72px;
-  --delay: 0ms;
-}
-
-.wall-brick-2 {
-  --x: 0px;
-  --y: 72px;
-  --delay: 180ms;
-}
-
-.wall-brick-3 {
-  --x: 132px;
-  --y: 72px;
-  --delay: 360ms;
-}
-
-.wall-brick-4 {
-  --x: -66px;
-  --y: 20px;
-  --delay: 540ms;
-}
-
-.wall-brick-5 {
-  --x: 66px;
-  --y: 20px;
-  --delay: 720ms;
-}
-
-.wall-brick-6 {
-  --x: 0px;
-  --y: -32px;
-  --delay: 900ms;
-}
-
 .contact-copy {
   position: relative;
   z-index: 8;
@@ -1553,25 +1485,6 @@ a {
   gap: clamp(20px, 3vh, 34px);
   width: min(92vw, 920px);
   text-align: center;
-}
-
-@keyframes wallBrickIn {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, calc(-50% - 48px), 90px) scale(0.94);
-  }
-
-  10%,
-  72% {
-    opacity: 1;
-    transform: translate3d(-50%, -50%, 0) scale(1);
-  }
-
-  84%,
-  100% {
-    opacity: 0;
-    transform: translate3d(-50%, calc(-50% + 18px), 0) scale(0.98);
-  }
 }
 
 .contact-copy h2 {
@@ -1946,7 +1859,6 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .vision-item,
 html.has-js .section:not(.is-visible):not(.is-exiting) .team-intro,
 html.has-js .section:not(.is-visible):not(.is-exiting) .team-card,
 html.has-js .section:not(.is-visible):not(.is-exiting) .contact-copy,
-html.has-js .section:not(.is-visible):not(.is-exiting) .digital-wall,
 html.has-js .section:not(.is-visible):not(.is-exiting) .venture-lane,
 html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   opacity: 0;
@@ -1961,8 +1873,7 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
 .section.is-visible .ventures-intro,
 .section.is-visible .vision-intro,
 .section.is-visible .team-intro,
-.section.is-visible .contact-copy,
-.section.is-visible .digital-wall {
+.section.is-visible .contact-copy {
   animation: copyIn 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -1992,8 +1903,7 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
 .section.is-exiting .ventures-intro,
 .section.is-exiting .vision-intro,
 .section.is-exiting .team-intro,
-.section.is-exiting .contact-copy,
-.section.is-exiting .digital-wall {
+.section.is-exiting .contact-copy {
   animation: copyOut 520ms cubic-bezier(0.7, 0, 0.84, 0) both;
 }
 
@@ -2432,11 +2342,6 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
     min-height: 62svh;
   }
 
-  .digital-wall {
-    left: 2vw;
-    width: clamp(190px, 34vw, 280px);
-  }
-
   .team-photo {
     min-height: 210px;
   }
@@ -2750,10 +2655,6 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
 
   .contact-section {
     min-height: 62svh;
-  }
-
-  .digital-wall {
-    display: none;
   }
 
   .ventures-intro > p:not(.test-label),
