@@ -1485,6 +1485,7 @@ a {
 
 .contact-section {
   place-items: center;
+  min-height: 62svh;
   color: var(--cream);
   background: var(--coral);
 }
@@ -1494,19 +1495,31 @@ a {
   z-index: 8;
   display: grid;
   justify-items: center;
-  gap: clamp(26px, 4vh, 44px);
+  gap: clamp(20px, 3vh, 34px);
   width: min(92vw, 920px);
   text-align: center;
 }
 
 .contact-copy h2 {
-  max-width: 13ch;
+  max-width: 18ch;
   margin: 0;
   font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
-  font-size: clamp(2rem, 4.7vw, 5.2rem);
+  font-size: clamp(1.7rem, 3.8vw, 4.1rem);
   font-weight: 400;
   line-height: 1.24;
   text-transform: uppercase;
+}
+
+.contact-copy h2 span {
+  display: block;
+}
+
+.contact-copy h2 span:first-child {
+  white-space: nowrap;
+}
+
+.contact-copy h2 span:last-child {
+  color: var(--green);
 }
 
 .contact-cta {
@@ -2339,7 +2352,7 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 
   .contact-copy h2 {
-    font-size: clamp(1.8rem, 7vw, 4.2rem);
+    font-size: clamp(1.5rem, 6vw, 3.2rem);
   }
 
   .team-photo {
@@ -2650,7 +2663,7 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 
   .contact-copy h2 {
-    font-size: clamp(1.42rem, 8vw, 2.8rem);
+    font-size: clamp(1.15rem, 7vw, 2.2rem);
   }
 
   .ventures-intro > p:not(.test-label),
