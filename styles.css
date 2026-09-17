@@ -319,6 +319,44 @@ a {
   pointer-events: none;
 }
 
+.digital-backdrop {
+  position: absolute;
+  top: 20vh;
+  right: 4vw;
+  width: clamp(390px, 38vw, 620px);
+  height: clamp(330px, 48vh, 480px);
+  z-index: 1;
+  border: 2px solid rgba(255, 249, 229, 0.22);
+  border-radius: 6px;
+  background: rgba(255, 249, 229, 0.075);
+  box-shadow:
+    16px 18px 0 rgba(55, 182, 105, 0.09),
+    -12px -10px 0 rgba(237, 93, 58, 0.07);
+  transform: rotate(-3deg);
+}
+
+.digital-backdrop::before,
+.digital-backdrop::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 249, 229, 0.2);
+}
+
+.digital-backdrop::before {
+  top: 22px;
+  left: 24px;
+  width: 54px;
+  height: 7px;
+  box-shadow: 68px 0 0 rgba(255, 249, 229, 0.13);
+}
+
+.digital-backdrop::after {
+  right: 24px;
+  bottom: 22px;
+  width: 82px;
+  height: 2px;
+}
+
 .asset {
   position: absolute;
   display: block;
@@ -329,40 +367,49 @@ a {
 }
 
 .asset-puzzle {
-  --w: clamp(150px, 15vw, 250px);
-  top: 23vh;
-  right: 5vw;
-  transform: rotate(14deg);
+  --w: clamp(70px, 6.2vw, 96px);
+  top: 60vh;
+  left: clamp(82px, 9.8vw, 140px);
+  transform: rotate(13deg);
 }
 
 .asset-lego {
-  --w: clamp(130px, 13vw, 220px);
-  left: clamp(-28px, 3vw, 70px);
-  top: 57vh;
-  transform: rotate(-10deg);
-}
-
-.asset-origami {
-  --w: clamp(190px, 22vw, 350px);
-  right: -1vw;
-  bottom: -3vh;
-  transform: rotate(3deg);
+  --w: clamp(78px, 7vw, 108px);
+  top: 60vh;
+  left: clamp(-8px, 2.5vw, 42px);
+  transform: rotate(-8deg);
 }
 
 .asset-tetris {
-  --w: clamp(160px, 17vw, 280px);
-  top: 16vh;
-  left: 34vw;
-  transform: rotate(10deg);
+  --w: clamp(105px, 10vw, 150px);
+  top: 13vh;
+  left: clamp(110px, 11vw, 200px);
+  transform: rotate(8deg);
 }
 
-.asset-alpact-hero {
-  --w: clamp(180px, 21vw, 340px);
-  top: 35vh;
-  right: clamp(250px, 26vw, 520px);
-  z-index: 2;
-  transform: rotate(-5deg);
+.asset-code {
+  --w: clamp(185px, 18vw, 300px);
+  top: 23vh;
+  right: clamp(200px, 23vw, 420px);
+  z-index: 4;
+  transform: rotate(-7deg);
   filter: drop-shadow(0 34px 58px rgba(17, 17, 17, 0.22));
+}
+
+.asset-cursor {
+  --w: clamp(170px, 17vw, 280px);
+  top: 43vh;
+  right: clamp(100px, 11vw, 210px);
+  z-index: 6;
+  transform: rotate(10deg);
+  filter: drop-shadow(0 34px 58px rgba(17, 17, 17, 0.24));
+}
+
+.asset-alpact-mark {
+  --w: clamp(68px, 6.6vw, 108px);
+  right: 2vw;
+  bottom: 3vh;
+  transform: rotate(-10deg);
 }
 
 .hero-cta-dark {
@@ -1151,7 +1198,7 @@ a {
   display: grid;
   justify-items: center;
   max-width: min(92vw, 1120px);
-  padding-top: clamp(48px, 8vh, 96px);
+  padding-top: clamp(16px, 2.4vh, 28px);
   text-align: center;
 }
 
@@ -1161,14 +1208,14 @@ a {
 }
 
 .ventures-intro h2 {
-  max-width: 17ch;
+  max-width: 19ch;
   margin: 8px 0 0;
   color: var(--ink);
   font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
-  font-size: clamp(1.85rem, 3.25vw, 3.45rem);
+  font-size: clamp(1.65rem, 2.5vw, 2.72rem);
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 1.36;
+  line-height: 1.28;
   text-transform: uppercase;
 }
 
@@ -1178,9 +1225,9 @@ a {
 
 .ventures-intro > p:not(.test-label) {
   max-width: 620px;
-  margin: 12px 0 0;
+  margin: 8px 0 0;
   font-family: "Clash Grotesk", "Aptos", "Segoe UI", sans-serif;
-  font-size: clamp(1rem, 1.22vw, 1.18rem);
+  font-size: clamp(0.92rem, 1vw, 1.04rem);
   font-weight: 400;
   line-height: 1.5;
 }
@@ -1192,14 +1239,17 @@ a {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(24px, 3vw, 46px);
   width: min(92vw, 1260px);
-  margin-top: clamp(38px, 5vh, 70px);
+  margin-top: clamp(18px, 2.5vh, 28px);
 }
 
 .venture-path-card {
   position: relative;
   display: grid;
-  min-height: clamp(300px, 36vh, 430px);
-  padding: clamp(34px, 4.6vw, 64px);
+  grid-template-rows: auto auto;
+  align-content: space-between;
+  gap: clamp(14px, 2vh, 22px);
+  min-height: clamp(390px, 51vh, 480px);
+  padding: clamp(22px, 2.3vw, 32px);
   border-radius: clamp(34px, 4.6vw, 66px);
   color: var(--white);
   overflow: hidden;
@@ -1240,7 +1290,7 @@ a {
   transform: rotate(6deg);
 }
 
-.venture-path-card > div {
+.venture-path-copy {
   position: relative;
   z-index: 1;
   display: grid;
@@ -1250,7 +1300,7 @@ a {
 
 .path-kicker {
   width: fit-content;
-  margin: 0 0 22px;
+  margin: 0 0 12px;
   padding: 8px 13px;
   border: 1px solid rgba(255, 253, 245, 0.72);
   border-radius: 999px;
@@ -1264,19 +1314,129 @@ a {
   max-width: 12ch;
   margin: 0;
   font-family: "Boldonse", "Druk Wide", "Anton", "Impact", "Arial Black", sans-serif;
-  font-size: clamp(1.45rem, 2.25vw, 2.55rem);
+  font-size: clamp(1.2rem, 1.62vw, 1.72rem);
   font-weight: 400;
-  line-height: 1.36;
+  line-height: 1.28;
   text-transform: uppercase;
 }
 
 .venture-path-card p:not(.path-kicker) {
   max-width: 40ch;
-  margin: 18px 0 0;
+  margin: 10px 0 0;
   font-family: "Clash Grotesk", "Aptos", "Segoe UI", sans-serif;
-  font-size: clamp(1rem, 1.15vw, 1.18rem);
+  font-size: clamp(0.86rem, 0.92vw, 0.98rem);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.4;
+}
+
+.venture-mini-grid {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end;
+  gap: 0;
+  width: 100%;
+  padding: 4px 4px 2px;
+}
+
+.venture-mini-card {
+  position: relative;
+  min-width: 0;
+  padding: clamp(8px, 0.8vw, 11px);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: clamp(20px, 2vw, 30px);
+  background: var(--cream);
+  color: var(--ink);
+  box-shadow: 0 14px 28px rgba(17, 17, 17, 0.18);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.venture-mini-card:first-child {
+  z-index: 2;
+  transform: translateX(5px) rotate(-2.2deg);
+}
+
+.venture-mini-card:last-child {
+  z-index: 1;
+  transform: translateX(-7px) translateY(5px) rotate(2.4deg);
+}
+
+.venture-mini-card:hover {
+  z-index: 4;
+  box-shadow: 0 20px 34px rgba(17, 17, 17, 0.22);
+  transform: translateY(-6px) rotate(0deg);
+}
+
+.venture-mini-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.72;
+  overflow: hidden;
+  border-radius: clamp(14px, 1.45vw, 21px);
+  background: var(--mini-color);
+}
+
+.venture-mini-media::before,
+.venture-mini-media::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 241, 210, 0.88);
+}
+
+.venture-mini-media::before {
+  top: 18%;
+  left: 18%;
+  width: 42%;
+  height: 58%;
+  border-radius: 50%;
+}
+
+.venture-mini-media::after {
+  right: 12%;
+  bottom: 13%;
+  width: 42%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  transform: rotate(18deg);
+}
+
+.mini-blue {
+  --mini-color: var(--blue);
+}
+
+.mini-pink {
+  --mini-color: var(--pink);
+}
+
+.mini-yellow {
+  --mini-color: var(--yellow);
+}
+
+.mini-blue-soft {
+  --mini-color: #6f98ed;
+}
+
+.venture-mini-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 4px 2px;
+  font-family: "Clash Grotesk", "Aptos", "Segoe UI", sans-serif;
+  line-height: 1;
+}
+
+.venture-mini-footer strong {
+  font-size: clamp(0.8rem, 0.95vw, 1rem);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.venture-mini-footer span {
+  flex: 0 0 auto;
+  font-size: clamp(0.64rem, 0.72vw, 0.76rem);
+  color: rgba(17, 17, 17, 0.58);
 }
 
 .vision-section {
@@ -2045,7 +2205,6 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   animation: objectOut 560ms cubic-bezier(0.7, 0, 0.84, 0) both;
 }
 
-.section.is-visible .asset-lego,
 .section.is-visible .method-tetris,
 .section.is-visible .card-market,
 .section.is-visible .profile-transform,
@@ -2077,40 +2236,32 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   animation-delay: 200ms;
 }
 
-.section.is-visible .asset-origami,
+.section.is-visible .asset-code,
 .section.is-visible .method-tool,
 .section.is-visible .card-scale {
   animation-delay: 260ms;
 }
 
-.section.is-visible .asset-puzzle {
-  animation:
-    objectIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both,
-    heroFloatOne 6.8s ease-in-out 1.05s infinite alternate;
-}
-
-.section.is-visible .asset-lego {
-  animation:
-    objectIn 900ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both,
-    heroFloatTwo 7.9s ease-in-out 1.25s infinite alternate;
-}
-
+.section.is-visible .asset-puzzle,
+.section.is-visible .asset-lego,
 .section.is-visible .asset-tetris {
-  animation:
-    objectIn 900ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both,
-    heroFloatThree 6.2s ease-in-out 1.35s infinite alternate;
+  animation: none;
 }
 
-.section.is-visible .asset-origami {
+.section.is-visible .asset-code {
   animation:
-    objectIn 900ms cubic-bezier(0.16, 1, 0.3, 1) 260ms both,
-    heroFloatFour 8.4s ease-in-out 1.5s infinite alternate;
+    objectIn 900ms cubic-bezier(0.16, 1, 0.3, 1) 140ms both,
+    heroFloatFour 8.4s ease-in-out 1.35s infinite alternate;
 }
 
-.section.is-visible .asset-alpact-hero {
+.section.is-visible .asset-cursor {
   animation:
-    objectIn 900ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both,
+    objectIn 900ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both,
     heroFloatFive 7.2s ease-in-out 1.2s infinite alternate;
+}
+
+.section.is-visible .asset-alpact-mark {
+  animation: alpactIconSpin 26s linear infinite;
 }
 
 @keyframes copyIn {
@@ -2212,6 +2363,15 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 }
 
+@keyframes alpactIconSpin {
+  from {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(350deg);
+  }
+}
+
 @media (max-width: 980px) {
   .hero {
     min-height: 100svh;
@@ -2246,29 +2406,46 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 
   .asset-puzzle {
-    right: -5vw;
-    top: 23vh;
+    --w: clamp(62px, 9vw, 80px);
+    top: 61vh;
+    left: 10.5vw;
   }
 
   .asset-tetris {
-    left: auto;
-    right: 46vw;
-    top: 19vh;
+    --w: clamp(82px, 13vw, 112px);
+    top: 12vh;
+    left: clamp(132px, 23vw, 205px);
   }
 
   .asset-lego {
-    --w: clamp(125px, 22vw, 180px);
-    left: -7vw;
-    top: 59vh;
+    --w: clamp(68px, 10vw, 90px);
+    top: 61vh;
+    left: -3vw;
   }
 
-  .asset-origami {
-    right: -11vw;
-    bottom: 10vh;
+  .asset-code {
+    --w: clamp(140px, 22vw, 210px);
+    top: 21vh;
+    right: 3vw;
   }
 
-  .asset-alpact-hero {
-    display: none;
+  .asset-cursor {
+    --w: clamp(125px, 20vw, 185px);
+    top: 40vh;
+    right: -2vw;
+  }
+
+  .digital-backdrop {
+    top: 18vh;
+    right: -4vw;
+    width: clamp(300px, 48vw, 440px);
+    height: clamp(290px, 45vh, 390px);
+  }
+
+  .asset-alpact-mark {
+    --w: clamp(64px, 10vw, 92px);
+    right: -4vw;
+    bottom: 8vh;
   }
 
   .method-section {
@@ -2411,7 +2588,7 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 
   .venture-path-card {
-    min-height: 280px;
+    min-height: 470px;
     padding: clamp(30px, 4.4vw, 44px);
   }
 
@@ -2547,29 +2724,47 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 
   .asset-puzzle {
-    --w: 138px;
-    top: 18vh;
+    --w: 50px;
+    top: 60vh;
+    left: 10vw;
   }
 
   .asset-tetris {
-    --w: 130px;
-    top: 22vh;
-    right: 58vw;
+    --w: 66px;
+    top: 12vh;
+    left: 29vw;
   }
 
   .asset-lego {
-    --w: 126px;
-    left: -16vw;
-    top: 58vh;
+    --w: 56px;
+    top: 60vh;
+    left: -8vw;
   }
 
-  .asset-origami {
-    --w: 230px;
-    bottom: 9vh;
+  .asset-code {
+    --w: 112px;
+    top: 19vh;
+    right: -4vw;
   }
 
-  .asset-alpact-hero {
-    display: none;
+  .asset-cursor {
+    --w: 106px;
+    top: 41vh;
+    right: -8vw;
+  }
+
+  .digital-backdrop {
+    top: 17vh;
+    right: -18vw;
+    width: 250px;
+    height: 300px;
+    opacity: 0.72;
+  }
+
+  .asset-alpact-mark {
+    --w: 70px;
+    right: -8vw;
+    bottom: 10vh;
   }
 
   .method-actions {
@@ -2732,8 +2927,13 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
   }
 
   .venture-path-card {
-    min-height: 250px;
+    min-height: 450px;
     border-radius: 36px;
+  }
+
+  .venture-mini-grid {
+    width: min(100%, 430px);
+    margin-inline: auto;
   }
 
   .path-lego {
@@ -2877,5 +3077,10 @@ html.has-js .section:not(.is-visible):not(.is-exiting) .venture-card {
     animation-duration: 1ms !important;
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
+  }
+
+  .section.is-visible .asset {
+    animation: none;
+    opacity: 1;
   }
 }
